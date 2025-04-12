@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+                                                                  //passo puntatore per riferimento
 bool ImportData(const string& inputfilePath, double& S, size_t& n, double*& w, double*& r);
 
 double Compute(const size_t& n, const double* const& w, const double* const& r);

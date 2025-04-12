@@ -20,7 +20,7 @@ int main()
         return -1;
     }
     else
-        cout<< "Import successful"<< endl; //RIVEDI STAMPA RESULTAT
+        cout<< "Import successful"<< endl; 
 
     double R = Compute(n, w, r);
     double V = S * (1 + R);
@@ -45,6 +45,7 @@ int main()
     else
         cout<< "Export successful"<< endl;
 
+    //dealloco
     delete[] w;
     delete[] r;
 

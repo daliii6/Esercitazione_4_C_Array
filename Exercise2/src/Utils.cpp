@@ -22,17 +22,18 @@ bool ImportData(const string& inputfilePath, double& S, size_t& n, double*& w, d
     std::string line;  //temporary string 
 
 	getline(fstr,line); // S;1000
-    S = stod(line.substr(line.find(';') + 1));
+    S = stod(line.substr(line.find(';') + 1)); // prendo ciò che c'è dopo ; e lo converto in double
 
     getline(fstr, line); // n;8
     n = stoi(line.substr(line.find(';') + 1));
 
     getline(fstr, line); // w;r
 
-    w = new double[n];
-    r = new double[n];
+    //Non so la lunghezza del file a compile time, uso la memoria dinamica	
+    w = new double[n]; // alloco memoria per w che contiene riga del file
+    r = new double[n]; // alloco r
 
-    for (size_t i = 0; i < n; ++i) {
+    for (unsigned int i = 0; i < n; i++) {
         getline(fstr, line);
         stringstream ss(line);
         string wStr, rStr;
@@ -45,12 +46,15 @@ bool ImportData(const string& inputfilePath, double& S, size_t& n, double*& w, d
     return true;
 }
 
+
+// passo per riferimento costante perchè non devo modificarli 
+// ed è più efficiente per la memoria
 double Compute(const size_t& n, 
                const double* const& w, 
                const double* const& r) 
 {
     double sum = 0.0;
-    for (size_t i = 0; i < n; ++i)
+    for (unsigned int i = 0; i < n; i++)
         sum += w[i] * r[i];
     return sum;
 }
