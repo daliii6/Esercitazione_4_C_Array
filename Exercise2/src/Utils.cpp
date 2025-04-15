@@ -8,9 +8,6 @@
 
 using namespace std;
 
-
-//dimensione file non nota a compile time
-
 bool ImportData(const string& inputfilePath, double& S, size_t& n, double*& w, double*& r) 
 {
     ifstream fstr(inputfilePath);
@@ -19,7 +16,7 @@ bool ImportData(const string& inputfilePath, double& S, size_t& n, double*& w, d
         return false;
     }
 
-    std::string line;  //temporary string 
+    std::string line;  //tmp string 
 
 	getline(fstr,line); // S;1000
     S = stod(line.substr(line.find(';') + 1)); // prendo ciò che c'è dopo ; e lo converto in double
@@ -68,7 +65,7 @@ bool ExportResult(const string& outputFilePath, const double& S,
     ofstream file;
     file.open(outputFilePath);
 
-    if (file.fail())
+    if (file.fail())  //controlli
     {
         cerr<< "file open failed"<< endl;
         return false;

@@ -1,5 +1,3 @@
-//trailling zeros : devo preservare lo zero dopo la virgola
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -25,8 +23,8 @@ int main()
     double R = Compute(n, w, r);
     double V = S * (1 + R);
 
-    cout << fixed;
-    cout.precision(2);
+    cout << fixed; 
+    cout.precision(2); //trailing zeros: devo preservare lo zero dopo la virgola
     cout << "S = " << S << ", n = " << n << endl;
     cout << "w = " << ArrayToString(n, w) << endl;
     cout << "r = " << ArrayToString(n, r) << endl;
